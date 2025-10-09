@@ -1,11 +1,11 @@
-import { connectionToFirebase } from "@/lib/dbConnect";
+import  dbConnect  from "@/lib/dbConnect";
 import { User } from "@/model/User";
 import bcrypt from "bcryptjs";
 
 import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
 
 export async function POST(request:Request){
-    await connectionToFirebase()
+    await dbConnect()
 
     try {
         const {username, email, password}=await request.json()
