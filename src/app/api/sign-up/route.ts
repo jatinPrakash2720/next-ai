@@ -33,15 +33,16 @@ export async function POST(request: Request) {
           },
           { status: 400 }
         );
-    }else{
-        const hashedPassword = await bcrypt.hash(password,10)
-        existingUnverifiedUserByEmail.password = hashedPassword
-        existingUnverifiedUserByEmail.verifyCode = verifyCode
-        existingUnverifiedUserByEmail.verifyCodeExpiry = new Date(Date.now()+3600000)
+      } else {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        existingUnverifiedUserByEmail.password = hashedPassword;
+        existingUnverifiedUserByEmail.verifyCode = verifyCode;
+        existingUnverifiedUserByEmail.verifyCodeExpiry = new Date(
+          Date.now() + 3600000
+        );
 
-        await existingUnverifiedUserByEmail.save()
-        
-    }
+        await existingUnverifiedUserByEmail.save();
+      }
     } else {
       const hashedPassword = await bcrypt.hash(password, 10);
       const expiryDate = new Date();
@@ -65,7 +66,8 @@ export async function POST(request: Request) {
       username,
       verifyCode
     );
-
+    console.log(emailResponse);
+    console.log(emailResponse.success);
     if (!emailResponse.success) {
       return Response.json(
         {
