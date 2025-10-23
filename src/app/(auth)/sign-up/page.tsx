@@ -8,13 +8,11 @@ import Link from "next/link";
 import { useDebounceCallback } from "usehooks-ts";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { signInSchema } from "@/schemas/signInSchema";
 import { signUpSchema } from "@/schemas/signUpSchema";
 import { ApiResponse } from "@/types/ApiResponse";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -77,7 +75,7 @@ const page = () => {
       } else {
         toast.success(response.data.message);
       }
-      router.replace(`/verify/username`)
+      router.replace(`verify/${username}`)
       setIsSubmitting(false);
     } catch (error) {
       console.error("Error in Sign-up of user", error);

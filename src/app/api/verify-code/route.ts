@@ -7,9 +7,8 @@ export async function POST(request: Request) {
   try {
     const { username, code } = await request.json();
     //decodeURIComponent(username) use this, if you are using query from search url, as it add %20
-    const decodedUsername = decodeURIComponent(username);
-    const user = await UserModel.findOne({ username: decodedUsername });
-
+    // const decodedUsername = decodeURIComponent(username);
+    const user = await UserModel.findOne({ username:username});
     if (!user) {
       return Response.json(
         {
