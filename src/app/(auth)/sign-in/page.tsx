@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { signInSchema } from "@/schemas/signInSchema";
 import axios, { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
-import { signIn, useSession } from "next-auth/react";
+import { signIn} from "next-auth/react";
 import {
   Form,
   FormControl,
@@ -26,10 +26,8 @@ const page = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const router = useRouter();
-  const { data: session, status } = useSession();
-
   //zod implementation
-  const form = useForm({
+  const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
       identifier: "",
@@ -46,12 +44,13 @@ const page = () => {
         redirect: false,
       });
 
-      if (!response?.ok) {
-        toast.error(response?.error);
-      } else {
-        toast.success("Sign in successfully");
+      if(response?.error){
+        toast.error(response?.error)
       }
-      router.replace("/dashboard");
+
+      if(response?.url){
+        router.replace('/dashboard')
+      }
       setIsSubmitting(false);
     } catch (error) {
       console.error("Error in Sign-in of user", error);
@@ -78,11 +77,11 @@ const page = () => {
               name="identifier"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>Email/Username</FormLabel>
                   <FormControl>
                     <div className="relative">
                       <Input
-                        placeholder="email"
+                        placeholder="email or username"
                         {...field}
                         onChange={(e) => {
                           field.onChange(e);
