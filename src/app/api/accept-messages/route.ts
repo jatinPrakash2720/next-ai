@@ -19,12 +19,12 @@ export async function POST(request: Request) {
   }
 
   const userId = session.user._id;
-  const { acceptMessage } = await request.json();
-
+  const { acceptMessages } = await request.json();
+  console.log("acceptMessage", acceptMessages);
   try {
     const updatedUser = await UserModel.findByIdAndUpdate(
       userId,
-      { isAcceptingMessage: acceptMessage },
+      { isAcceptingMessage: acceptMessages },
       { new: true }
     );
     if (!updatedUser) {

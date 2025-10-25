@@ -15,34 +15,49 @@ export async function GET(request: Request) {
       { status: 402 }
     );
   }
-
+  console.log("session :", session);
   const userId = new mongoose.Types.ObjectId(session.user._id);
-
+  console.log("userId :", userId);
   try {
     const user = await UserModel.aggregate([
-      { $match: { id: userId } },
-      { $unwind: "$messages" },
-      { $sort: { "messages.createdAt": -1 } },
-      { $group: { _id: "$_id", messages: { $push: "$messages" } } },
+      { $match: { _id: userId } }, // Match user by _id
+      { $unwind: "$messages" }, // Unwind messages array
+      { $sort: { "messages.createdAt": -1 } }, // Sort by message date (newest first)
+      {
+        $group: {
+          _id: "$_id",
+          messages: { $push: "$messages" }, // Push all messages back into array
+        },
+      },
     ]);
 
-    if(!user || user.length===0){
-        return Response.json({
-            success:false,
-            message:"User not found"
-        },{status:401})
+    console.log("user :", user);
+
+    if (!user || user.length === 0) {
+      return Response.json(
+        {
+          success: false,
+          message: "User not found",
+        },
+        { status: 401 }
+      );
     }
 
-    return Response.json({
-        success:true,
-        messages:user[0].messages,
-
-    },{status:200})
+    return Response.json(
+      {
+        success: true,
+        messages: user[0].messages, // Messages are already sorted by the pipeline
+      },
+      { status: 200 }
+    );
   } catch (error) {
-    console.error("Error while getting messages of user :",error)
-    return Response.json({
-        success:false,
-        message:"Error while getting messages of user"
-    },{status:500})
+    console.error("Error while getting messages of user :", error);
+    return Response.json(
+      {
+        success: false,
+        message: "Error while getting messages of user",
+      },
+      { status: 500 }
+    );
   }
 }

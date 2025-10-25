@@ -31,8 +31,9 @@ export async function POST(request: Request) {
 
     const newMessage = { content, createdAt: new Date() };
     user.messages.push(newMessage as Message);
-    await user.save();
-
+    console.log("user :", user);
+    const userSaved = await user.save();
+    console.log("user saved :", userSaved);
     return Response.json({
       success: true,
       message: "message sent successfully",

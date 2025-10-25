@@ -75,7 +75,7 @@ const page = () => {
       } else {
         toast.success(response.data.message);
       }
-      router.replace(`verify/${username}`)
+      router.replace(`verify/${username}`);
       setIsSubmitting(false);
     } catch (error) {
       console.error("Error in Sign-up of user", error);
@@ -87,13 +87,15 @@ const page = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-zinc-900">
+      <div className="w-full max-w-md p-8 space-y-8 bg-white dark:bg-zinc-800 rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6 text-black dark:text-white">
             Join Mystery Message
           </h1>
-          <p className="mb-4">Sign up to start your anonymous adventure</p>
+          <p className="mb-4 text-gray-600 dark:text-zinc-400">
+            Sign up to start your anonymous adventure
+          </p>
         </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
@@ -102,7 +104,9 @@ const page = () => {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Username
+                  </FormLabel>
                   <FormControl>
                     <div className="relative">
                       <Input
@@ -112,7 +116,7 @@ const page = () => {
                           field.onChange(e);
                           debounced(e.target.value);
                         }}
-                        className="h-10"
+                        className="h-10 bg-white dark:bg-zinc-700 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                       />
                       {isCheckingUsername && (
                         <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 animate-spin" />
@@ -139,7 +143,9 @@ const page = () => {
               name="email"
               render={({ field }) => (
                 <FormItem className="mb-8">
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Email
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="email"
@@ -159,7 +165,9 @@ const page = () => {
               name="password"
               render={({ field }) => (
                 <FormItem className="mb-8">
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Password
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="password"
@@ -191,9 +199,12 @@ const page = () => {
           </form>
         </Form>
         <div className="text-center mt-4">
-          <p>
+          <p className="text-black dark:text-white">
             Already a member?{" "}
-            <Link href="/sign-in" className="text-blue-600 hover:text-blue-800">
+            <Link
+              href="/sign-in"
+              className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            >
               Sign in
             </Link>
           </p>

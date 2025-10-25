@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { signInSchema } from "@/schemas/signInSchema";
 import axios, { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
-import { signIn} from "next-auth/react";
+import { signIn } from "next-auth/react";
 import {
   Form,
   FormControl,
@@ -44,12 +44,12 @@ const page = () => {
         redirect: false,
       });
 
-      if(response?.error){
-        toast.error(response?.error)
+      if (response?.error) {
+        toast.error(response?.error);
       }
 
-      if(response?.url){
-        router.replace('/dashboard')
+      if (response?.url) {
+        router.replace("/dashboard");
       }
       setIsSubmitting(false);
     } catch (error) {
@@ -62,13 +62,15 @@ const page = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-zinc-900">
+      <div className="w-full max-w-md p-8 space-y-8 bg-white dark:bg-zinc-800 rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6 text-black dark:text-white">
             Join Mystery Message
           </h1>
-          <p className="mb-4">Sign up to start your anonymous adventure</p>
+          <p className="mb-4 text-gray-600 dark:text-zinc-400">
+            Sign up to start your anonymous adventure
+          </p>
         </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
@@ -77,7 +79,9 @@ const page = () => {
               name="identifier"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email/Username</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Email/Username
+                  </FormLabel>
                   <FormControl>
                     <div className="relative">
                       <Input
@@ -86,7 +90,7 @@ const page = () => {
                         onChange={(e) => {
                           field.onChange(e);
                         }}
-                        className="h-10"
+                        className="h-10 bg-white dark:bg-zinc-700 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                       />
                     </div>
                   </FormControl>
@@ -99,13 +103,15 @@ const page = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel className="text-black dark:text-white">
+                    Password
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="password"
                       placeholder="password"
                       {...field}
-                      className="h-10"
+                      className="h-10 bg-white dark:bg-zinc-700 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                     />
                   </FormControl>
                   <FormMessage />
@@ -128,9 +134,12 @@ const page = () => {
           </form>
         </Form>
         <div className="text-center mt-4">
-          <p>
+          <p className="text-black dark:text-white">
             Create A New Account?{" "}
-            <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">
+            <Link
+              href="/sign-up"
+              className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            >
               Sign up
             </Link>
           </p>
