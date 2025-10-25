@@ -78,12 +78,12 @@ const SignInPage = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-black dark:text-white">
-                    Email/Username
+                    Email
                   </FormLabel>
                   <FormControl>
                     <div className="relative">
                       <Input
-                        placeholder="email or username"
+                        placeholder="email"
                         {...field}
                         onChange={(e) => {
                           field.onChange(e);
