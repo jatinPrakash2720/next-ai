@@ -119,4 +119,58 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  @media (max-width: 1023px) {
+    .dark [data-sonner-toast] {
+      background-color: #27272a !important;
+      border-color: #3f3f46 !important;
+      color: #ffffff !important;
+    }
+
+    .dark [data-sonner-toast] [data-title] {
+      color: #ffffff !important;
+    }
+
+    .dark [data-sonner-toast] [data-description] {
+      color: #a1a1aa !important;
+    }
+
+    .dark [data-sonner-toast] [data-button] {
+      background-color: #3f3f46 !important;
+      color: #ffffff !important;
+    }
+
+    .dark [data-sonner-toast] [data-close-button] {
+      background-color: #3f3f46 !important;
+      border-color: #52525b !important;
+      color: #ffffff !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .dark [data-sonner-toast] {
+      background-color: #18181b !important;
+      border-color: #27272a !important;
+      color: #ffffff !important;
+    }
+
+    .dark [data-sonner-toast] [data-title] {
+      color: #ffffff !important;
+    }
+
+    .dark [data-sonner-toast] [data-description] {
+      color: #a1a1aa !important;
+    }
+
+    .dark [data-sonner-toast] [data-button] {
+      background-color: #27272a !important;
+      color: #ffffff !important;
+    }
+
+    .dark [data-sonner-toast] [data-close-button] {
+      background-color: #27272a !important;
+      border-color: #3f3f46 !important;
+      color: #ffffff !important;
+    }
+  }
 }
