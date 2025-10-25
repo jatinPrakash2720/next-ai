@@ -9,7 +9,7 @@ export default function Home() {
   const { data: session } = useSession();
 
   return (
-    <div className="bg-white dark:bg-zinc-900 flex flex-col justify-center z-0 pt-30">
+    <div className="bg-white dark:bg-black flex flex-col justify-center z-0 pt-30">
       {/* Hero Section - Centered */}
       <div className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -63,8 +63,8 @@ export default function Home() {
       </div>
 
       {/* How It Works Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-        <div className="flex flex-col items-center justify-center bg-gray-100 dark:bg-zinc-800 rounded-lg ">
+      <div className="max-w-7xl mx-auto mb-10 border border-gray-200 dark:border-zinc-700 rounded-lg">
+        <div className="flex flex-col items-center justify-center bg-gray-100 dark:bg-zinc-950/90 rounded-lg ">
           <div className="text-center  px-4 py-2 mb-2 w-full border-b border-gray-300 dark:border-zinc-600">
             <h2 className="text-3xl font-bold text-black dark:text-white ">
               How It Works

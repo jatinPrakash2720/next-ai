@@ -131,11 +131,11 @@ const UserProfilePage = () => {
     return () => {};
   }, []);
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-900 flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-black flex flex-col">
       {/* Theme Toggle - Fixed Position */}
       <button
         onClick={toggleTheme}
-        className="fixed top-4 right-4 z-50 p-3 rounded-full bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm shadow-lg hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors"
+        className="fixed top-4 right-4 z-50 p-3 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-sm shadow-lg hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors"
       >
         {theme === "light" ? (
           <Moon className="w-5 h-5 text-black dark:text-white" />
@@ -166,7 +166,7 @@ const UserProfilePage = () => {
                 {...form.register("content")}
                 id="content"
                 rows={3}
-                className="w-full px-4 py-3 border-1 border-gray-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-black dark:text-white rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white resize-none"
+                className="w-full px-4 py-3 border-1 border-gray-300 dark:border-zinc-600 bg-white dark:bg-zinc-950 text-black dark:text-white rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white resize-none"
                 placeholder="Write your anonymous message here"
                 disabled={isSubmitting}
               />
@@ -181,7 +181,7 @@ const UserProfilePage = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-black hover:bg-gray-700 dark:bg-black dark:hover:bg-gray-800 text-white font-medium py-3 px-8 rounded-lg text-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-black hover:bg-gray-700  dark:bg-white/90 dark:hover:bg-white text-white dark:text-black font-medium py-3 px-8 rounded-lg text-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Sending..." : "Send It"}
               </button>
@@ -223,7 +223,7 @@ const UserProfilePage = () => {
                 <button
                   key={index}
                   onClick={() => form.setValue("content", message)}
-                  className="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 dark:bg-zinc-800 dark:hover:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg transition-colors group"
+                  className="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 dark:bg-zinc-950 dark:hover:bg-gray-900 border border-gray-200 dark:border-zinc-600 rounded-lg transition-colors group"
                 >
                   <span className="text-gray-700 dark:text-zinc-300 text-lg group-hover:text-gray-900 dark:group-hover:text-white">
                     {message}
@@ -251,7 +251,7 @@ const UserProfilePage = () => {
             Get Your Message Board
           </p>
           <Link href="/sign-up">
-            <button className="bg-black hover:bg-gray-800 dark:bg-black dark:hover:bg-gray-800 text-white font-medium py-3 px-8 rounded-lg text-lg transition-colors">
+            <button className="bg-black hover:bg-gray-800  dark:bg-white/90 dark:hover:bg-white text-white dark:text-black font-medium py-3 px-8 rounded-lg text-lg transition-colors">
               Create Your Account
             </button>
           </Link>
@@ -259,7 +259,7 @@ const UserProfilePage = () => {
       </div>
 
       {/* Footer */}
-      <footer className=" py-8 border-t border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800">
+      <footer className="py-8 border-t border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-950/90">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-sm text-gray-600 dark:text-zinc-400 mb-2">

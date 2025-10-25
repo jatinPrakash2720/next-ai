@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="absolute top-0 left-0 right-0 p-4 md:p-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm shadow-md z-50">
+    <nav className="absolute top-0 left-0 right-0 p-4 md:p-6 bg-white/90 dark:bg-black/90 backdrop-blur-sm shadow-md z-50 border-b border-gray-200 dark:border-zinc-700">
       <div className="container mx-auto flex flex-row justify-between items-center">
         <Link className="text-xl font-bold text-black dark:text-white" href="/">
           Mystry Message

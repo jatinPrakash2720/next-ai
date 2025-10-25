@@ -87,8 +87,8 @@ const SignUpPage = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-zinc-900">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white dark:bg-zinc-800 rounded-lg shadow-md">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-black">
+      <div className="w-full max-w-md p-8 space-y-8 bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-900 rounded-lg shadow-md">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6 text-black dark:text-white">
             Join Mystery Message
@@ -116,7 +116,7 @@ const SignUpPage = () => {
                           field.onChange(e);
                           debounced(e.target.value);
                         }}
-                        className="h-10 bg-white dark:bg-zinc-700 text-black dark:text-white border-gray-300 dark:border-zinc-600"
+                        className="h-10 bg-white dark:bg-zinc-950 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                       />
                       {isCheckingUsername && (
                         <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 animate-spin" />
@@ -153,7 +153,7 @@ const SignUpPage = () => {
                       onChange={(e) => {
                         field.onChange(e);
                       }}
-                      className="h-10"
+                      className="h-10 bg-white dark:bg-zinc-950 mb-2 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                     />
                   </FormControl>
                   <FormMessage />
@@ -176,7 +176,7 @@ const SignUpPage = () => {
                       onChange={(e) => {
                         field.onChange(e);
                       }}
-                      className="h-10"
+                      className="h-10 bg-white dark:bg-zinc-950 mb-2 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                     />
                   </FormControl>
                   <FormMessage />

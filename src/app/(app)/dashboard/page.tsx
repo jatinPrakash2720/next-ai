@@ -117,7 +117,7 @@ const DashboardPage = () => {
     return <div>PLease login</div>;
   }
   return (
-    <div className="my-8 mx-auto p-8 bg-white  dark:bg-zinc-900 rounded-lg w-full max-w-6xl pt-24">
+    <div className="my-8 mx-auto p-8 bg-white  dark:bg-black rounded-lg w-full max-w-6xl pt-24">
       <h1 className="text-4xl font-bold mb-4 text-black dark:text-white">
         User Dashboard
       </h1>
@@ -130,7 +130,7 @@ const DashboardPage = () => {
             type="text"
             value={profileUrl}
             disabled
-            className="input input-bordered w-full p-2 h-10  bg-gray-100 dark:bg-zinc-800 text-black dark:text-white rounded-l-md "
+            className="input input-bordered w-full p-2 h-10  bg-gray-100 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-700 text-black dark:text-white rounded-l-md "
           />
           <Button
             className="bg-primary dark:text-black text-white hover:bg-primary/90 h-10 rounded-r-md rounded-l-none border-none "
