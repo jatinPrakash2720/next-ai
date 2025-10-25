@@ -40,13 +40,13 @@ export async function POST(request: Request) {
     return Response.json(
       {
         success: true,
-        message: "update the user's isAcceptingMessage status",
+        message: "Updated Your Accepting Message status : " + acceptMessages,
       },
       { status: 200 }
     );
   } catch (error) {
     console.error(
-      "failed to update the user's isAcceptingMessage status :",
+      "failed to update the user's Accepting Message status :",
       error
     );
     return Response.json(
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET(request: Request) {
+export async function GET() {
   await dbConnect();
 
   const session = await getServerSession(authOptions);
@@ -87,7 +87,7 @@ export async function GET(request: Request) {
         { status: 501 }
       );
     }
-  
+
     return Response.json(
       {
         success: true,
@@ -100,15 +100,15 @@ export async function GET(request: Request) {
     );
   } catch (error) {
     console.error(
-        "failed to get the user's isAcceptingMessage status :",
-        error
-      );
-      return Response.json(
-        {
-          success: false,
-          message: "failed to get the user's isAcceptingMessage status",
-        },
-        { status: 500 }
-      );
+      "failed to get the user's isAcceptingMessage status :",
+      error
+    );
+    return Response.json(
+      {
+        success: false,
+        message: "failed to get the user's isAcceptingMessage status",
+      },
+      { status: 500 }
+    );
   }
 }

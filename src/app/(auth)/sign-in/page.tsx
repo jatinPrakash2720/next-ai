@@ -7,8 +7,6 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { signInSchema } from "@/schemas/signInSchema";
-import axios, { AxiosError } from "axios";
-import { ApiResponse } from "@/types/ApiResponse";
 import { signIn } from "next-auth/react";
 import {
   Form,
@@ -22,7 +20,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 
-const page = () => {
+const SignInPage = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const router = useRouter();
@@ -149,4 +147,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SignInPage;

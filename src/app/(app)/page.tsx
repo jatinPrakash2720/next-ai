@@ -50,7 +50,7 @@ export default function Home() {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="border-black text-white hover:bg-gray-50 px-8 py-3 text-lg"
+                      className="border-black text-black dark:text-white hover:bg-gray-50 px-8 py-3 text-lg"
                     >
                       Sign In
                     </Button>

@@ -10,14 +10,13 @@ import { ApiResponse } from "@/types/ApiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
 import { Loader2, RefreshCcw } from "lucide-react";
-import { User } from "next-auth";
 import { useSession } from "next-auth/react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
 
-const page = () => {
+const DashboardPage = () => {
   const [messages, setMessages] = React.useState<Message[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isSwitchLoading, setIsSwitchLoading] = React.useState(false);
@@ -118,7 +117,7 @@ const page = () => {
     return <div>PLease login</div>;
   }
   return (
-    <div className="my-8 mx-auto p-8 bg-white dark:bg-zinc-900 rounded-lg w-full max-w-6xl pt-24">
+    <div className="my-8 mx-auto p-8 bg-white  dark:bg-zinc-900 rounded-lg w-full max-w-6xl pt-24">
       <h1 className="text-4xl font-bold mb-4 text-black dark:text-white">
         User Dashboard
       </h1>
@@ -171,7 +170,7 @@ const page = () => {
 
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
         {messages.length > 0 ? (
-          messages.map((message, index) => (
+          messages.map((message) => (
             <MessageCard
               key={message._id as string}
               message={message}
@@ -186,4 +185,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default DashboardPage;

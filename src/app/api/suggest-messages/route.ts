@@ -58,7 +58,7 @@ export const runtime = "edge";
 //   }
 // }
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     console.log("Starting suggest-messages request");
 

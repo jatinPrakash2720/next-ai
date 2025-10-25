@@ -5,22 +5,13 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { User } from "next-auth";
 import { Button } from "./ui/button";
-import { useState, useEffect } from "react";
 import { LogOutIcon, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/helpers/themeToggle";
 const Navbar = () => {
   const { data: session } = useSession();
   const user: User = session?.user as User;
-  const [showWelcome, setShowWelcome] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme} = useTheme();
 
-  useEffect(() => {
-    if (session) {
-      setShowWelcome(true);
-      const timer = setTimeout(() => setShowWelcome(false), 500);
-      return () => clearTimeout(timer);
-    }
-  }, [session]);
   return (
     <nav className="absolute top-0 left-0 right-0 p-4 md:p-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm shadow-md z-50">
       <div className="container mx-auto flex flex-row justify-between items-center">
@@ -29,7 +20,7 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center gap-4">
           <button
-            onClick={toggleTheme}
+            onClick={() => toggleTheme()}
             className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
           >
             {theme === "light" ? (

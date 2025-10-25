@@ -9,11 +9,11 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { toast } from "sonner";
 import { ApiResponse } from "@/types/ApiResponse";
-import Footer from "@/components/Footer";
 import { useTheme } from "@/helpers/themeToggle";
 import { Sun, Moon, Loader2 } from "lucide-react";
+import Link from "next/link";
 
-const page = () => {
+const UserProfilePage = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [suggestedMessages, setSuggestedMessages] = React.useState<string[]>(
     []
@@ -128,8 +128,6 @@ const page = () => {
   React.useEffect(() => {
     // Load prebuilt messages initially
     setSuggestedMessages(getRandomMessages());
-    console.log("suggestedMessages :", suggestedMessages);
-
     return () => {};
   }, []);
   return (
@@ -252,9 +250,11 @@ const page = () => {
           <p className="text-gray-600 dark:text-zinc-400 mb-4">
             Get Your Message Board
           </p>
-          <button className="bg-black hover:bg-gray-800 dark:bg-black dark:hover:bg-gray-800 text-white font-medium py-3 px-8 rounded-lg text-lg transition-colors">
-            Create Your Account
-          </button>
+          <Link href="/sign-up">
+            <button className="bg-black hover:bg-gray-800 dark:bg-black dark:hover:bg-gray-800 text-white font-medium py-3 px-8 rounded-lg text-lg transition-colors">
+              Create Your Account
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -295,4 +295,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default UserProfilePage;

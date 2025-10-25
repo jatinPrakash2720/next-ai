@@ -5,12 +5,17 @@ const Footer = () => {
         <div className="text-center">
           <p className="text-sm text-gray-600 dark:text-zinc-400 mb-2">
             Built by{" "}
-            <span className="text-black dark:text-white font-semibold">
+            <a
+              href="https://portfolio.jatinbuilds.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black dark:text-white font-semibold hover:underline"
+            >
               Jatin Prakash
-            </span>{" "}
+            </a>{" "}
             • Project inspired by{" "}
             <a
-              href="https://www.youtube.com/@HiteshChoudharydotcom"
+              href="https://www.youtube.com/@chaiaurcode"
               target="_blank"
               rel="noopener noreferrer"
               className="text-black dark:text-white font-semibold hover:underline"
@@ -21,12 +26,12 @@ const Footer = () => {
           <p className="text-xs text-gray-500 dark:text-zinc-500">
             Built following the tutorial:{" "}
             <a
-              href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+              href="https://youtu.be/zLJoVRleOuc"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:underline"
             >
-              Anonymous Messages App Tutorial
+              Anonymous Messages App Tutorial Video
             </a>
           </p>
         </div>

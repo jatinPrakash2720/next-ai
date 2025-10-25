@@ -2,14 +2,13 @@ import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/User";
 import { getServerSession, User } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/options";
-import { flightRouterStateSchema } from "next/dist/server/app-render/types";
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   await dbConnect();
-  const messageId = params.id;
+  const { id: messageId } = await params;
   const session = await getServerSession(authOptions);
   if (!session || !session.user) {
     return Response.json(

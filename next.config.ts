@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   // In next.config.ts
   reactStrictMode: false,
+  devIndicators:false
 };
 
 export default nextConfig;
