@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { User } from "next-auth";
 import { Button } from "./ui/button";
 import { LogOutIcon, Sun, Moon } from "lucide-react";
@@ -10,7 +11,13 @@ import { useTheme } from "@/helpers/themeToggle";
 const Navbar = () => {
   const { data: session } = useSession();
   const user: User = session?.user as User;
-  const { theme, toggleTheme} = useTheme();
+  const { theme, toggleTheme } = useTheme();
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+    router.push("/");
+  };
 
   return (
     <nav className="absolute top-0 left-0 right-0 p-4 md:p-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm shadow-md z-50">
@@ -37,7 +44,7 @@ const Navbar = () => {
                 </span>
                 <Button
                   className="w-10 rounded-full md:rounded-md md:w-auto"
-                  onClick={() => signOut()}
+                  onClick={handleSignOut}
                 >
                   <LogOutIcon className="md:hidden" />
                   <span className="hidden md:inline">Logout</span>
