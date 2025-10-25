@@ -87,13 +87,13 @@ const SignUpPage = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-black">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-900 rounded-lg shadow-md">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-black px-4">
+      <div className="w-full max-w-md p-4 md:p-8 space-y-4 md:space-y-6 bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-900 rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6 text-black dark:text-white">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3 md:mb-6 text-black dark:text-white">
             Join Mystery Message
           </h1>
-          <p className="mb-4 text-gray-600 dark:text-zinc-400">
+          <p className="mb-2 md:mb-4 text-sm md:text-base text-gray-600 dark:text-zinc-400">
             Sign up to start your anonymous adventure
           </p>
         </div>
@@ -104,7 +104,7 @@ const SignUpPage = () => {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-black dark:text-white">
+                  <FormLabel className="text-black dark:text-white text-sm">
                     Username
                   </FormLabel>
                   <FormControl>
@@ -116,7 +116,7 @@ const SignUpPage = () => {
                           field.onChange(e);
                           debounced(e.target.value);
                         }}
-                        className="h-10 bg-white dark:bg-zinc-950 text-black dark:text-white border-gray-300 dark:border-zinc-600"
+                        className="h-9 md:h-10 text-sm bg-white dark:bg-zinc-950 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                       />
                       {isCheckingUsername && (
                         <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 animate-spin" />
@@ -125,7 +125,7 @@ const SignUpPage = () => {
                   </FormControl>
                   <div className="min-h-[20px]">
                     <p
-                      className={`text-[12px] ${
+                      className={`text-[11px] md:text-[12px] ${
                         usernameMessage === "Username is unique"
                           ? "text-green-500"
                           : "text-red-500"
@@ -134,7 +134,7 @@ const SignUpPage = () => {
                       {usernameMessage}
                     </p>
                   </div>
-                  <FormMessage />
+                  <FormMessage className="text-xs" />
                 </FormItem>
               )}
             />
@@ -142,8 +142,8 @@ const SignUpPage = () => {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="mb-8">
-                  <FormLabel className="text-black dark:text-white">
+                <FormItem className="mb-4 md:mb-8">
+                  <FormLabel className="text-black dark:text-white text-sm">
                     Email
                   </FormLabel>
                   <FormControl>
@@ -153,10 +153,10 @@ const SignUpPage = () => {
                       onChange={(e) => {
                         field.onChange(e);
                       }}
-                      className="h-10 bg-white dark:bg-zinc-950 mb-2 text-black dark:text-white border-gray-300 dark:border-zinc-600"
+                      className="h-9 md:h-10 text-sm bg-white dark:bg-zinc-950 mb-2 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-xs" />
                 </FormItem>
               )}
             />
@@ -164,8 +164,8 @@ const SignUpPage = () => {
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem className="mb-8">
-                  <FormLabel className="text-black dark:text-white">
+                <FormItem className="mb-4 md:mb-8">
+                  <FormLabel className="text-black dark:text-white text-sm">
                     Password
                   </FormLabel>
                   <FormControl>
@@ -176,21 +176,21 @@ const SignUpPage = () => {
                       onChange={(e) => {
                         field.onChange(e);
                       }}
-                      className="h-10 bg-white dark:bg-zinc-950 mb-2 text-black dark:text-white border-gray-300 dark:border-zinc-600"
+                      className="h-9 md:h-10 text-sm bg-white dark:bg-zinc-950 mb-2 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-xs" />
                 </FormItem>
               )}
             />
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="mr-2 h-10 w-full"
+              className="mr-2 h-9 md:h-10 w-full text-sm"
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="animate-spin" /> PLease wait
+                  <Loader2 className="animate-spin w-4 h-4" /> PLease wait
                 </>
               ) : (
                 "Sign up"
@@ -198,8 +198,8 @@ const SignUpPage = () => {
             </Button>
           </form>
         </Form>
-        <div className="text-center mt-4">
-          <p className="text-black dark:text-white">
+        <div className="text-center mt-2 md:mt-4">
+          <p className="text-sm text-black dark:text-white">
             Already a member?{" "}
             <Link
               href="/sign-in"

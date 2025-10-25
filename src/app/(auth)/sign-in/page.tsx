@@ -60,13 +60,13 @@ const SignInPage = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-black">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-900 rounded-lg shadow-md">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-black px-4">
+      <div className="w-full max-w-md p-4 md:p-8 space-y-4 md:space-y-8 bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-900 rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6 text-black dark:text-white">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3 md:mb-6 text-black dark:text-white">
             Join Mystery Message
           </h1>
-          <p className="mb-4 text-gray-600 dark:text-zinc-400">
+          <p className="mb-2 md:mb-4 text-sm md:text-base text-gray-600 dark:text-zinc-400">
             Sign up to start your anonymous adventure
           </p>
         </div>
@@ -77,7 +77,7 @@ const SignInPage = () => {
               name="identifier"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-black dark:text-white">
+                  <FormLabel className="text-black dark:text-white text-sm">
                     Email
                   </FormLabel>
                   <FormControl>
@@ -88,11 +88,11 @@ const SignInPage = () => {
                         onChange={(e) => {
                           field.onChange(e);
                         }}
-                        className="h-10 bg-white dark:bg-zinc-950 text-black dark:text-white border-gray-300 dark:border-zinc-600"
+                        className="h-9 md:h-10 text-sm bg-white dark:bg-zinc-950 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                       />
                     </div>
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-xs" />
                 </FormItem>
               )}
             />
@@ -101,7 +101,7 @@ const SignInPage = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-black dark:text-white">
+                  <FormLabel className="text-black dark:text-white text-sm">
                     Password
                   </FormLabel>
                   <FormControl>
@@ -109,21 +109,21 @@ const SignInPage = () => {
                       type="password"
                       placeholder="password"
                       {...field}
-                      className="h-10 bg-white dark:bg-zinc-950 mb-2 text-black dark:text-white border-gray-300 dark:border-zinc-600"
+                      className="h-9 md:h-10 text-sm bg-white dark:bg-zinc-950 mb-2 text-black dark:text-white border-gray-300 dark:border-zinc-600"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-xs" />
                 </FormItem>
               )}
             />
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="mr-2 h-10 w-full"
+              className="mr-2 h-9 md:h-10 w-full text-sm"
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="animate-spin" /> PLease wait
+                  <Loader2 className="animate-spin w-4 h-4" /> PLease wait
                 </>
               ) : (
                 "Sign in"
@@ -131,8 +131,8 @@ const SignInPage = () => {
             </Button>
           </form>
         </Form>
-        <div className="text-center mt-4">
-          <p className="text-black dark:text-white">
+        <div className="text-center mt-2 md:mt-4">
+          <p className="text-sm text-black dark:text-white">
             Create A New Account?{" "}
             <Link
               href="/sign-up"
