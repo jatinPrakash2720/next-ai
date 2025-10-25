@@ -54,11 +54,12 @@ const Navbar = () => {
               <div className="flex flex-row items-center justify-center gap-4">
                 <Link
                   href="/sign-in"
-                  className="font-bold text-black dark:text-white"
+                  className="md:font-bold md:text-black md:dark:text-white"
                 >
-                  Login
+                  <Button className="md:hidden w-full">Login</Button>
+                  <span className="hidden md:inline">Login</span>
                 </Link>
-                <Link href="/sign-up">
+                <Link href="/sign-up" className="hidden md:block">
                   <Button className="w-full md:w-auto">Get Started</Button>
                 </Link>
               </div>
